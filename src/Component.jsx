@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import "./Style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -9,7 +9,35 @@ import { faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
+const initialState=[];
+
+// function reducer(state,action){
+//   switch(action.type){
+//     case "ADD_TASK":return [
+//       ...state,{
+//         id:state.length+1,
+//         name:action.payload
+//       }
+//     ]
+//     default:
+//       return state;
+//   }
+// }
+
+function reducer(state,action){
+  switch(action.type){
+    case "ADD_TASK" : return [
+      ...state,{
+        id:state.length+1,
+        
+      }
+    ]
+  }
+}
+
 const Component = () => {
+  const [todos,dispatch] = useReducer(reducer,initialState)
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -19,6 +47,7 @@ const Component = () => {
 
   // for education
   const [isFormVisisble, setIsFormVisible] = useState(false);
+  const [isEduForm, setIsEduForm] = useState(false);
 
   const toggleForm = () => {
     setIsFormVisible(!isFormVisisble);
@@ -40,6 +69,12 @@ const Component = () => {
   };
 
   const { fullName, email, number, address } = formData;
+
+  // ! CREATING EDUCATION
+
+  const openEducationForm = () => {
+    setIsEduForm(!isEduForm);
+  };
 
   return (
     <>
@@ -99,64 +134,71 @@ const Component = () => {
           </div>
 
           <div className="div3 containers">
-            <button onClick={toggleForm} className="btn">
-              <FontAwesomeIcon icon={faGraduationCap} />
-              <h1>
-                <span>Education</span>
-              </h1>
-              <FontAwesomeIcon
-                icon={isFormVisisble ? faChevronUp : faChevronDown}
-              />
-            </button>
-            {isFormVisisble && (
-              <form>
-                <div className="input-group">
-                  <label>School</label>
-                  <input
-                    name="school"
-                    type="text"
-                    placeholder="City, Country"
-                    onChange={(e) => handleChange(e)}
-                  />
-                </div>
-                <div className="input-group">
-                  <label>Degree</label>
-                  <input
-                    name="degree"
-                    type="text"
-                    placeholder="City, Country"
-                    onChange={(e) => handleChange(e)}
-                  />
-                </div>
-                <div className="input-group">
-                  <label>Start Date</label>
-                  <input
-                    name="startDate"
-                    type="number"
-                    placeholder="City, Country"
-                    onChange={(e) => handleChange(e)}
-                  />
-                </div>
-                <div className="input-group">
-                  <label>End Date</label>
-                  <input
-                    name="address"
-                    type="number"
-                    placeholder="City, Country"
-                    onChange={(e) => handleChange(e)}
-                  />
-                </div>
-                <div className="input-group">
-                  <label>Location</label>
-                  <input
-                    name="address"
-                    type="text"
-                    placeholder="City, Country"
-                    onChange={(e) => handleChange(e)}
-                  />
-                </div>
-              </form>
-            )}
+            <div className="educationContainer">
+              <button onClick={toggleForm} className="btn">
+                <FontAwesomeIcon icon={faGraduationCap} />
+                <h1>
+                  <span>Education</span>
+                </h1>
+                <FontAwesomeIcon
+                  icon={isFormVisisble ? faChevronUp : faChevronDown}
+                />
+              </button>
+              {isFormVisisble && (
+                <button onClick={openEducationForm} className="btnEdu">
+                  <strong>+ </strong>Education
+                </button>
+              )}
+              {isFormVisisble && (
+                <form>
+                  <div className="input-group">
+                    <label>School</label>
+                    <input
+                      name="school"
+                      type="text"
+                      placeholder="City, Country"
+                      onChange={(e) => handleChange(e)}
+                    />
+                  </div>
+                  <div className="input-group">
+                    <label>Degree</label>
+                    <input
+                      name="degree"
+                      type="text"
+                      placeholder="City, Country"
+                      onChange={(e) => handleChange(e)}
+                    />
+                  </div>
+                  <div className="input-group">
+                    <label>Start Date</label>
+                    <input
+                      name="startDate"
+                      type="number"
+                      placeholder="City, Country"
+                      onChange={(e) => handleChange(e)}
+                    />
+                  </div>
+                  <div className="input-group">
+                    <label>End Date</label>
+                    <input
+                      name="address"
+                      type="number"
+                      placeholder="City, Country"
+                      onChange={(e) => handleChange(e)}
+                    />
+                  </div>
+                  <div className="input-group">
+                    <label>Location</label>
+                    <input
+                      name="address"
+                      type="text"
+                      placeholder="City, Country"
+                      onChange={(e) => handleChange(e)}
+                    />
+                  </div>
+                </form>
+              )}
+            </div>
           </div>
         </div>
 
