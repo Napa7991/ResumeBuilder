@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f3f4f6;
+}
+section {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+  gap: 2rem;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.div1 {
+  background-color: #fff;
+  box-shadow: 0 7px 29px 0 hsla(240, 5%, 41%, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px;
+  justify-content: center;
+  top: 8px;
+  border-radius: 0.5rem;
+  align-items: center;
+}
+h5 {
+  color: rgb(205, 24, 24);
+  font-weight: bold;
+}
+.div1span {
+  background-color: #f3f4f6;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+}
+.containers {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 18px;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+label {
+  cursor: default;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+.input-group input {
+  background-color: #f3f4f6;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 10px;
+  transition: border 0.25s, box-shadow 0.25s;
+}
+.div2 h1 {
+  font-weight: bold;
+}
+
+/* !Right Div */
+.right {
+  width: 70%;
+}
+.personal-info {
+  background-color: #0e374e;
+  color: #fff;
+  padding: 36px 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.contact-info {
+  display: flex;
+  gap: 2rem;
+}
+.resume-name {
+  margin-bottom: 14px;
+  font-size: 2rem;
+}
+.contact-info span {
+  margin-left: 0.4rem;
+}
+
+.clear {
+  cursor: pointer;
+}
+
+/* !Education */
+.btn {
+  align-items: center;
+  background-color: #fff;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  width: 100%;
+  transition: transform .3s,-webkit-transform .3s;
+}
+.btn span{
+    margin-right: 4rem;
+}
+.education-header{
+    align-items: center;
+    background-color: rgba(14,55,78,.07);
+    border-radius: 2px;
+    color: var(--resume-accent);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 13px;
+    padding: 4px 0;
+    text-align: center;
+}
